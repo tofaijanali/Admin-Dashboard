@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - Rounak Tyres</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="logout-container">
+        <h2>Are you sure you want to logout?</h2>
+        <p>Click below to confirm logout.</p>
+        
+        <button onclick="logout()">Logout</button>
+        <button onclick="cancelLogout()">Cancel</button>
+    </div>
+
+
+    <script>
+        function logout() {
+            document.querySelector(".logout-container").style.display = "none";
+            let message = document.getElementById("logout-message");
+            message.classList.remove("hidden");
+            setTimeout(() => {
+                window.location.href = "file:///C:/Users/Acer/Documents/admin%20dashboard/index.html#";
+            }, 2000);
+        }
+
+        function cancelLogout() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+    }
+    .logout-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    h2 {
+        color: #FF4500;
+    }
+    button {
+        background: #FF4500;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #e03e00;
+    }
+    #logout-message {
+        display: block;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #28a745;
+    }
+    .hidden {
+        display: none;
+    }
+</style>

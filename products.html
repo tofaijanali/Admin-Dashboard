@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rounak Tyres - Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="products-container">
+        <h2>Rounak Tyres - Our Products</h2>
+        <input type="text" id="search-box" placeholder="Search product..." onkeyup="searchProduct()">
+        <div class="product-list" id="product-list">
+            <div class="product-item"><p><strong>MRF ZVTS</strong> - ₹4500</p><button class="delete-btn" onclick="deleteProduct(this)">X</button></div>
+            <div class="product-item"><p><strong>CEAT Milaze</strong> - ₹4200</p><button class="delete-btn" onclick="deleteProduct(this)">X</button></div>
+            <div class="product-item"><p><strong>JK Ultima</strong> - ₹4000</p><button class="delete-btn" onclick="deleteProduct(this)">X</button></div>
+            <div class="product-item"><p><strong>Bridgestone B290</strong> - ₹4800</p><button class="delete-btn" onclick="deleteProduct(this)">X</button></div>
+            <div class="product-item"><p><strong>Apollo Amazer</strong> - ₹4600</p><button class="delete-btn" onclick="deleteProduct(this)">X</button></div>
+            <div class="product-item"><p><strong>Goodyear Assurance</strong> - ₹4700</p><button class="delete-btn" onclick="deleteProduct(this)">X</button></div>
+        </div>
+        <div class="product-input">
+            <input type="text" id="product-name" placeholder="Enter product name...">
+            <input type="text" id="product-price" placeholder="Enter product price...">
+            <button onclick="addProduct()">Add Product</button>
+        </div>
+    </div>
+
+    <script>
+        function addProduct() {
+            let productName = document.getElementById("product-name").value.trim();
+            let productPrice = document.getElementById("product-price").value.trim();
+            let productList = document.getElementById("product-list");
+
+            if (productName && productPrice) {
+                let productDiv = document.createElement("div");
+                productDiv.classList.add("product-item");
+                productDiv.innerHTML = `<p><strong>${productName}</strong> - ₹${productPrice}</p>
+                                        <button class="delete-btn" onclick="deleteProduct(this)">X</button>`;
+                productList.appendChild(productDiv);
+
+                document.getElementById("product-name").value = "";
+                document.getElementById("product-price").value = "";
+            }
+        }
+
+        function deleteProduct(button) {
+            button.parentElement.remove();
+        }
+
+        function searchProduct() {
+            let searchValue = document.getElementById("search-box").value.toLowerCase();
+            let products = document.querySelectorAll(".product-item");
+            products.forEach(product => {
+                let productText = product.innerText.toLowerCase();
+                if (productText.includes(searchValue)) {
+                    product.style.display = "flex";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    .products-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+    }
+    h2 {
+        text-align: center;
+        color: #FF4500;
+    }
+    #search-box {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .product-list {
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: #fafafa;
+        margin-bottom: 10px;
+    }
+    .product-item {
+        background: #FF4500;
+        color: white;
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .product-item p {
+        margin: 0;
+        flex: 1;
+    }
+    .delete-btn {
+        background: #e03e00;
+        color: white;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .product-input {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        background: #FF4500;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #e03e00;
+    }
+</style>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:wght@400;500;700&display=swap" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="file:///C:/Users/Acer/Documents/admin%20dashboard/icons8-dashboard-96.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar  start -->
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2>Rounak<span class="danger">tyres</span></h2>
+                </div>
+                <div class="close">
+                    <span class="material-symbols-sharp"></span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="file:///C:/Users/Acer/Documents/admin%20dashboard/index.html#" class="active"><span class="material-symbols-sharp">menu</span> <h3>Dashboard</h3></a>
+                <a href="customer.html"><span class="material-symbols-sharp">person_outline</span> <h3>Customers</h3></a>
+                <a href="analytics.html"><span class="material-symbols-sharp">insights</span> <h3>Analytics</h3></a>
+                <a href="messeges.html"><span class="material-symbols-sharp">mail_outline</span> <h3>Messages</h3> <span class="msg_count">14</span></a>
+                <a href="products.html"><span class="material-symbols-sharp">receipt_long</span> <h3>Products</h3></a>
+                <a href="report.html"><span class="material-symbols-sharp">report</span> <h3>Report</h3></a>
+                <a href="settings.html"><span class="material-symbols-sharp">settings</span> <h3>Settings</h3></a>
+                <a href="addproducts.html"><span class="material-symbols-sharp">add</span> <h3>Add Product</h3></a>
+                <a href="logout.html"><span class="material-symbols-sharp">logout</span> <h3>Logout</h3></a>
+            </div>
+        </aside>
+  <!-- Left Sidebar  end -->
+        <!-- Main Content start  -->
+        <main>
+            <h1>Dashboard </h1>
+
+           
+
+            <div class="insights">
+
+                <div class="sales">
+                    <span class="material-symbols-sharp">trending_up</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total sales</h3>
+                            <h1>$27,777</h1>
+                        </div>
+                        <div class="proggress">
+                            <svg>  <circle r="30" cy="40" cx="40"></circle>
+                            </svg>
+                            <div class="number">
+                                80%
+                            </div>
+                        </div>
+                    </div>
+                    <small>Last 24 Hours</small>
+                </div>
+
+                 <div class="expenses">
+                    <span class="material-symbols-sharp">local_mall</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3> Expenses</h3>
+                            <h1>$21,554</h1>
+                        </div>
+                        <div class="proggress">
+                            <svg>  <circle r="30" cy="40" cx="40"></circle>
+                            </svg>
+                            <div class="number">
+                                40%
+                            </div>
+                        </div>
+                    </div>
+                    <small>Last 24 Hours</small>
+                </div>
+
+                  <div class="expenses">
+                    <span class="material-symbols-sharp">stacked_line_chart</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3> Income</h3>
+                            <h1>$25,866</h1>
+                        </div>
+                        <div class="proggress">
+                            <svg>  <circle r="30" cy="40" cx="40"></circle>
+                            </svg>
+                            <div class="number">
+                                90%
+                            </div>
+                        </div>
+                    </div>
+                    <small>Last 24 Hours</small>
+                </div>
+
+            </div>
+            <!-- Main Content end -->
+
+
+            <!-- recent orders area  start  -->
+<div class="recent_orders">
+    <h1>Recent orders </h1>
+    <table>
+        <thead>
+            <tr>
+                <th> Product Name  </th>
+                <th> Product Number    </th>
+                <th> Payments </th>
+                <th> Status  </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mrf tyres</td>
+                <td>1120</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td> 
+            </tr>
+            <tr>
+                <td>Ceat tyres</td>
+                <td>1520</td>
+                <td>Paid</td>
+                <td class="success">Paid</td>
+                <td class="primary">Details</td> 
+            </tr>
+            <tr>
+                <td>Apollo tyres</td>
+                <td>1180</td>
+                <td>Due</td>
+                <td class="success">Paid</td>
+                <td class="primary">Details</td> 
+            </tr>
+        </tbody>
+    </table>
+</div>
+        </main>
+                  <!-- recent orders area  end  -->
+
+    
+<div class="right">
+    
+    <!-- Enhanced Profile Section -->
+    <div class="profile-card">
+        <div class="profile-header">
+            <img src="file:///C:/Users/Acer/Documents/ROUNAK%20TYRE/images/RT%20Logo%202.png" alt="Admin" class="profile-img">
+            <div class="profile-info">
+                <h4>Faijan Ali</h4>
+                <small>Admin</small>
+                <div class="profile-status online"></div>
+            </div>
+        </div>
+        <div class="profile-stats">
+            <div class="stat-item">
+                <span class="material-symbols-sharp">work</span>
+                <div>
+                    <small>Projects</small>
+                    <h5>24</h5>
+                </div>
+            </div>
+            <div class="stat-item">
+                <span class="material-symbols-sharp">task</span>
+                <div>
+                    <small>Tasks</small>
+                    <h5>12</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Center -->
+    <div class="notification-center">
+        <div class="section-header">
+            <h3>Notifications</h3>
+            <span class="badge">5 new</span>
+        </div>
+        
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="quick-stats">
+        <div class="stat-card">
+            <span class="material-symbols-sharp">trending_up</span>
+            <div>
+                <h4>Sales</h4>
+                <h2>$12,345</h2>
+               <b> <small class="success">↑ 12% from last month</small></b>
+            </div>
+        </div>
+        <div class="stat-card">
+            <span class="material-symbols-sharp">groups</span>
+            <div>
+                <h4>Users</h4>
+                <h2>1,234</h2>
+               <b><small class="warning">↓ 5% from last month</small></b >
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

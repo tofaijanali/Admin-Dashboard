@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rounak Tyres - Reports</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="reports-container">
+        <h2>Rounak Tyres - Sales Reports</h2>
+        <canvas id="salesChart"></canvas>
+        <div class="report-controls">
+            <label for="month">Select Month:</label>
+            <select id="month" onchange="updateChart()">
+                <option value="Jan">January</option>
+                <option value="Feb">February</option>
+                <option value="Mar">March</option>
+                <option value="Apr">April</option>
+                <option value="May">May</option>
+                <option value="Jun">June</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        let salesData = {
+            'Jan': [5000, 7000, 8000, 6000, 7500, 6800],
+            'Feb': [4500, 7200, 8600, 6400, 7800, 7000],
+            'Mar': [5200, 6900, 8100, 6200, 7700, 7300],
+            'Apr': [5300, 7100, 8700, 6500, 7900, 7100],
+            'May': [5600, 7300, 8900, 6700, 8200, 7400],
+            'Jun': [5800, 7500, 9200, 6900, 8500, 7700]
+        };
+
+        let ctx = document.getElementById('salesChart').getContext('2d');
+        let salesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                datasets: [{
+                    label: 'Sales (₹)',
+                    data: salesData['Jan'],
+                    backgroundColor: 'rgba(255, 69, 0, 0.6)',
+                    borderColor: 'rgba(255, 69, 0, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        function updateChart() {
+            let selectedMonth = document.getElementById("month").value;
+            salesChart.data.datasets[0].data = salesData[selectedMonth];
+            salesChart.update();
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    .reports-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 700px;
+        margin: auto;
+        text-align: center;
+    }
+    h2 {
+        color: #FF4500;
+    }
+    .report-controls {
+        margin-top: 10px;
+    }
+    select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>

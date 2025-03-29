@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="customer-section">
+        <h2>Customer Management</h2>
+        <div class="controls">
+            <input type="text" id="searchBox" placeholder="Search Customer..." onkeyup="searchCustomer()">
+            <button class="add-customer" onclick="addCustomer()">+ Add Customer</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="customerTable">
+                <tr>
+                    <td>1</td>
+                    <td>Faizan Ali</td>
+                    <td>faizana0443w@gmail.com</td>
+                    <td>+91 9973652688</td>
+                    <td>
+                        <button class="edit" onclick="editCustomer(this)">Edit</button>
+                        <button class="delete" onclick="deleteCustomer(this)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        function addCustomer() {
+            let name = prompt("Enter customer name:");
+            let email = prompt("Enter customer email:");
+            let phone = prompt("Enter customer phone:");
+            if (name && email && phone) {
+                let table = document.getElementById("customerTable");
+                let row = table.insertRow();
+                row.innerHTML = `
+                    <td>${table.rows.length}</td>
+                    <td>${name}</td>
+                    <td>${email}</td>
+                    <td>${phone}</td>
+                    <td>
+                        <button class="edit" onclick="editCustomer(this)">Edit</button>
+                        <button class="delete" onclick="deleteCustomer(this)">Delete</button>
+                    </td>
+                `;
+            }
+        }
+
+        function editCustomer(button) {
+            let row = button.parentElement.parentElement;
+            let name = row.cells[1].innerText;
+            let newName = prompt("Edit name:", name);
+            if (newName) row.cells[1].innerText = newName;
+        }
+
+        function deleteCustomer(button) {
+            let row = button.parentElement.parentElement;
+            row.remove();
+        }
+
+        function searchCustomer() {
+            let filter = document.getElementById("searchBox").value.toLowerCase();
+            let rows = document.getElementById("customerTable").getElementsByTagName("tr");
+            for (let i = 0; i < rows.length; i++) {
+                let name = rows[i].cells[1].innerText.toLowerCase();
+                rows[i].style.display = name.includes(filter) ? "" : "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 20px;
+    }
+    .customer-section {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
+        margin: auto;
+    }
+    h2 {
+        margin-bottom: 15px;
+        color: #FF4500;
+        text-align: center;
+    }
+    .controls {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+    #searchBox {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    .add-customer {
+        background: #28a745;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+    }
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background: #FF4500;
+        color: white;
+    }
+    .edit, .delete {
+        border: none;
+        padding: 8px 12px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .edit {
+        background: #007bff;
+        color: white;
+    }
+    .delete {
+        background: #dc3545;
+        color: white;
+    }
+    .edit:hover {
+        background: #0056b3;
+    }
+    .delete:hover {
+        background: #c82333;
+    }
+</style>

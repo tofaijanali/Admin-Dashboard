@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rounak Tyres - Messages</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="messages-container">
+        <h2>Rounak Tyres - Customer Messages</h2>
+        <div class="message-list" id="message-list">
+           
+        </div>
+        <div class="message-input">
+            <input type="text" id="message-box" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        <button onclick="clearMessages()" class="clear-btn">Clear Messages</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let messageBox = document.getElementById("message-box");
+            let messageList = document.getElementById("message-list");
+            let messageText = messageBox.value.trim();
+            
+            if (messageText) {
+                let messageDiv = document.createElement("div");
+                messageDiv.classList.add("message");
+                messageDiv.innerHTML = `<p>${messageText}</p><button class="delete-btn" onclick="deleteMessage(this)">X</button>`;
+                messageList.appendChild(messageDiv);
+                messageBox.value = "";
+                messageList.scrollTop = messageList.scrollHeight;
+            }
+        }
+
+        function deleteMessage(button) {
+            button.parentElement.remove();
+        }
+
+        function clearMessages() {
+            document.getElementById("message-list").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    .messages-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+    }
+    h2 {
+        text-align: center;
+        color: #FF4500;
+    }
+    .message-list {
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: #fafafa;
+        margin-bottom: 10px;
+    }
+    .message {
+        background: #FF4500;
+        color: white;
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .message p {
+        margin: 0;
+        flex: 1;
+    }
+    .delete-btn {
+        background: #e03e00;
+        color: white;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .message-input {
+        display: flex;
+        gap: 10px;
+    }
+    input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        background: #FF4500;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #e03e00;
+    }
+    .clear-btn {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+    }
+</style>

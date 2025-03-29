@@ -1,0 +1,468 @@
+/* fonts import start here */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+/* fonts import end here */
+
+/* root variables start here */
+:root {
+    --clr-primary: #7380ec;
+    --clr-danger: #ff7782;
+    --clr-success: #41f1b6;
+    --clr-white: #fff;
+    --clr-info-dark: #7d8da1;
+    --clr-info-light: #dce1eb;
+    --clr-dark: #363949;
+    --clr-warning: #ff4edc;
+    --clr-light: rgba(132, 139, 200, 0.18);
+    --clr-primary-variant: #111e88;
+    --clr-dark-variant: #677483;
+    --clr-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.5rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--clr-light);
+}
+/* root variables end here */
+
+/* universal selector start here */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* universal selector end here */
+
+/* body styles start here */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--clr-background);
+    overflow-y: auto;
+}
+/* body styles end here */
+
+/* container styles start here */
+.container {
+    display: grid;
+    grid-template-columns: 14rem auto 23rem;
+    gap: 1.8rem;
+    width: 96%;
+    margin: 0 auto;
+}
+/* container styles end here */
+
+/* sidebar styles start here */
+aside {
+    height: 92vh;
+    background-color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.2rem;
+    position: sticky;
+    top: 0;
+    box-shadow: var(--box-shadow);
+    justify-content: space-between;
+}
+
+aside .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.2rem;
+    margin-bottom: 1.5rem; /* Adds space below the top logo section */
+}
+
+aside .logo h2 {
+    font-size: 1.6rem;
+    margin-left: 0.5rem;
+    padding: 0;
+    color: var(--clr-primary);
+}
+
+aside .logo h2 span {
+    color: var(--clr-danger);
+}
+
+aside .sidebar {
+    margin-top: 0.1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+aside .sidebar a {
+    display: flex;
+    align-items: center;
+    color: var(--clr-info-dark);
+    padding: 1rem 1.2rem; /* Increased padding for uniform spacing */
+    margin: 0.25rem 0;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    position: relative;
+    text-decoration: none;
+}
+
+/* Specific styling for Messages link */
+aside .sidebar a:nth-child(4) { /* Messages link */
+    margin-bottom: 1.5rem;
+}
+
+/* Specific styling for Add Product link */
+aside .sidebar a:nth-child(8) { /* Add Product link */
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--clr-info-light);
+}
+
+aside .sidebar a:hover {
+    background: var(--clr-light);
+    color: var(--clr-primary);
+    border-left: 4px solid var(--clr-primary);
+}
+
+aside .sidebar a.active {
+    background: var(--clr-light);
+    color: var(--clr-primary);
+    border-left: 4px solid var(--clr-primary);
+}
+
+/* Message count styling */
+aside .sidebar .msg_count {
+    position: absolute;
+    right: 1.5rem;
+    background: var(--clr-danger);
+    color: var(--clr-white);
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+/* sidebar styles end here */
+
+/* main content styles start here */
+main {
+    margin-top: 1.4rem;
+    width: auto;
+}
+
+main h1 {
+    margin-bottom: 0.5rem;
+}
+
+main .date {
+    display: inline-block;
+    background-color: var(--clr-white);
+    border-radius: var(--border-radius-1);
+    margin-top: 1rem;
+    padding: 0.5rem 1.6rem;
+    color: var(--clr-dark);
+}
+
+.insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.insights > div {
+    background-color: var(--clr-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all .3s ease;
+}
+
+.insights > div:hover {
+    box-shadow: none;
+    transform: scale(1.02);
+}
+
+.insights span.material-symbols-sharp {
+    font-size: 2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--clr-white);
+    background: var(--clr-success);
+}
+
+.insights .middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.insights .left h3 {
+    margin-bottom: 0.5rem;
+}
+
+.insights .proggress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+}
+
+.insights svg {
+    width: 7rem;
+    height: 7rem;
+}
+
+.insights svg circle {
+    fill: none;
+    stroke: var(--clr-primary);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+.insights .number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.insights small {
+    display: block;
+    margin-top: 1.3rem;
+}
+/* main content styles end here */
+
+/* recent orders styles start here */
+.recent_orders {
+    margin-top: 1.5rem;
+}
+
+.recent_orders h1 {
+    margin-bottom: 0.8rem;
+}
+
+.recent_orders table {
+    background: var(--clr-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.recent_orders table:hover {
+    box-shadow: none;
+}
+
+.recent_orders table thead th {
+    text-align: left;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--clr-info-light);
+}
+
+.recent_orders table tbody td {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--clr-info-light);
+}
+
+.recent_orders table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.recent_orders .warning {
+    color: var(--clr-warning);
+}
+
+.recent_orders .primary {
+    color: var(--clr-primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* recent orders styles end here */
+
+/* right panel styles start here */
+.right h1 {
+    margin-bottom: 1rem;
+}
+
+.right {
+    width: 20rem; 
+    margin-top: 1.4rem;
+    background: var(--clr-white);
+    padding: 1rem; 
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    position: sticky;
+    top: 1.4rem;
+    right: 1rem;
+    height: 92vh;
+    overflow-y: auto;
+    transition: all 300ms ease;
+}
+
+.right:hover {
+    box-shadow: none;
+}
+/* right panel styles end here */
+
+/* utility classes start here */
+.primary {
+    color: var(--clr-primary);
+}
+
+.success {
+    color: var(--clr-success);
+}
+
+.warning {
+    color: var(--clr-warning);
+}
+
+b {
+    color: var(--clr-dark);
+}
+
+p {
+    color: var(--clr-dark-variant);
+}
+
+.text-muted {
+    color: var(--clr-info-dark);
+}
+
+.profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;    
+    border-radius: 50%;
+    overflow: hidden;
+}
+/* utility classes end here */
+
+/* profile card styles start here */
+.profile-card {
+    margin-bottom: 1.8rem;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.profile-img {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--clr-primary);
+}
+
+.profile-info h4 {
+    font-size: 1.1rem;
+    color: var(--clr-dark);
+}
+
+.profile-info small {
+    color: var(--clr-info-dark);
+}
+
+.profile-status {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: var(--clr-success);
+    margin-left: auto;
+}
+
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.stat-item {
+    background: var(--clr-white);
+    padding: 0.8rem;
+    border-radius: var(--border-radius-1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-item span {
+    font-size: 1.5rem;
+    color: var(--clr-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: var(--clr-light);
+}
+/* profile card styles end here */
+
+/* section header styles start here */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    background: var(--clr-danger);
+    color: var(--clr-white);
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+}
+/* section header styles end here */
+
+/* notification item styles start here */
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: var(--clr-white);
+    border-radius: var(--border-radius-1);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.notification-item span {
+    font-size: 1.2rem;
+    color: var(--clr-primary);
+    padding: 0.4rem;
+    border-radius: 50%;
+    background: var(--clr-light);
+}
+/* notification item styles end here */
+
+/* quick stats styles start here */
+.quick-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.stat-card {
+    background: var(--clr-light);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    transition: all 300ms ease;
+}
+
+.stat-card span {
+    font-size: 1.8rem;
+    color: var(--clr-white);
+    background: var(--clr-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+/* quick stats styles end here */
